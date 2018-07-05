@@ -5,7 +5,12 @@ ENV INITSYSTEM on
 
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 	build-essential \
-	&& apt-get clean && rm -rf /var/lib/apt/lists/*
+	#install netcat
+	&& apt-get install netcat iputils-ping -y \
+	#install python
+	&& apt-get install -y python \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
 
 COPY . /usr/src/app
 WORKDIR /usr/src/app
@@ -13,3 +18,4 @@ WORKDIR /usr/src/app
 RUN g++ -o hello hello.cpp
 
 CMD ./hello
+CMD ["python", "hello.py"]
