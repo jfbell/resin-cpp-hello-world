@@ -19,6 +19,10 @@ WORKDIR /usr/src/app
 RUN g++ -o hello hello.cpp
 
 CMD ./hello
+
+CMD curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+CMD python get-pip.py
+CMD pip install picamera
 CMD ["python", "hello.py"]
-CMD chmod +x netcatStream.sh
-CMD ./netcatStream.sh
+# CMD chmod +x netcatStream.sh
+# CMD ./netcatStream.sh

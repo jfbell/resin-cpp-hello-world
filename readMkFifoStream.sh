@@ -5,4 +5,4 @@ then
   rm fifo264
 fi
 mkfifo fifo264
-nc -l -v -p 577 > fifo264
+nc -v -l 5777 > fifo264
