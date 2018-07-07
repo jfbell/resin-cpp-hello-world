@@ -4,13 +4,12 @@ FROM resin/%%RESIN_MACHINE_NAME%%-debian
 ENV INITSYSTEM on
 
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
-	build-essential \
-	&& apt-get install apt-utils \
-	#install netcat
-	#&& apt-get install netcat iputils-ping -y \
+	build-essential
+RUN apt-get install apt-utils \
+
 	#install python
-	&& apt-get install -y python3 python3-pip \
-	&& apt-get clean \
+RUN apt-get install -y python3 python3-pip 
+RUN apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* \
 
 #RUN python3 ./get-pip.py
